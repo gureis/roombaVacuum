@@ -6,12 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Roomba Robot</title>
 </head>
-<body onload="setupTiles()">
+<body>
     <div id="root"></div>
     <button onclick="startRoomba()" style="float: right;">Start Roomba</button>
+    <input id="rows" placeholder="rows" style="float: right;"></input>
+    <input id="columns" placeholder="columns" style="float: right;"></button>
     <script>
-        let rows = 2;
-        let columns = 2;
+        let rows;
+        let columns;
         const root = document.querySelector('#root');
         const roomba = document.createElement('div');
         roomba.style.position = "absolute";
@@ -55,6 +57,9 @@
         }
 
         function startRoomba() {
+            rows = parseInt(document.querySelector('#rows').value) || 2;
+            columns = parseInt(document.querySelector('#columns').value) || 2
+            setupTiles();
             const roombaPos = {
                 column: 0,
                 row: 0
@@ -64,6 +69,8 @@
             const roombaOnId = setInterval(() => {
                 console.log(currentPos);
                 if (rows <= roombaPos.row) {
+                    roomba.style.top = "5px";
+                    roomba.style.left = "5px";
                     roomba.style.backgroundColor = "green";
                     clearInterval(roombaOnId);
                 } else if (tiles[currentPos].style.backgroundColor == "rgb(161, 153, 148)") {                    
