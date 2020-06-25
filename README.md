@@ -17,3 +17,8 @@ The available positions are chosen according to the following rules:
 - An agent will not choose to move back to his last position in the environment.
 
 This aproach was chosen following the premises that the agent doesn't know his environmnent, it only knows when it is in one of the borders.
+
+## How to use?
+1. Open index.html at the root of the project.
+2. Choose how many columns and rows using the inputs at the top right corner (if you want to use the default values, leave it blank).
+3. Click at "Start Roomba" to setup the environment and start the agent.
